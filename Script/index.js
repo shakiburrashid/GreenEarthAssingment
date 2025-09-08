@@ -15,7 +15,8 @@ const showCatagoriesList = (list)=>{
         h1.innerHTML = 
         `<h2 id="selected-${i.id}" onclick="cardList(${i.id})" class="text-xl p-2 rounded-xl cursor-pointer allclick">${i.category_name}</h2>`
         Catagories.appendChild(h1)
-        document.getElementById("selected-1").classList.add("primary")
+       let autoselected =  document.getElementById("selected-1").classList.add("primary")
+       
         
     }
 }
@@ -48,7 +49,7 @@ const Cart = document.getElementById("Cart");
 // Cart Section
 const showCardList = (list)=>{
         const Cart = document.getElementById("Cart");
-        Cart.innerHTML = "";
+        Cart.innerHTML = "";        
         for(let i of list){
             const div = document.createElement("div")
             div.innerHTML= 
@@ -74,12 +75,6 @@ const showCardList = (list)=>{
 
 
 
-
-
-
-
-
-
 const Cart = async (id)=>{
     const url = `https://openapi.programming-hero.com/api/plant/${id}`
     const res = await fetch(url)
@@ -88,6 +83,13 @@ const Cart = async (id)=>{
 }
 
 let CartAmount = (list) => {
+    console.log(list);
+    let nowMoney = 0;
+    const totalMoney = document.getElementById("totalMoney");
+    let TotalMoney +=nowMoney
+    totalMoney.innerHTML = ``
+
+
     const cartAmount = document.getElementById("cartAmount")
     const div = document.createElement("div")
     div.innerHTML = 
@@ -100,11 +102,6 @@ let CartAmount = (list) => {
                             </div>
                             <i class="fa-solid fa-xmark"></i>
                         </div>
-                    </div>
-                    <hr class="bg-gray-200">
-                    <div class="flex justify-between p-3 m-3 text-xl">
-                        <h1>Total: </h1>
-                        <h1><span class="banglafont">৳</span>1000</h1>
                     </div>
                 </div>`
         cartAmount.appendChild(div)
