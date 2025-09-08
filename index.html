@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green-Earth</title>
+    <!-- Bangla Font Cdn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
     <!-- Tailwind + DaisyUI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -38,17 +42,17 @@
     </section>
 
     <!-- Banner Section  -->
-    <section class="bg-[#CFF0DC] h-[383px]">
-        <div class="flex justify-around gap-20 items-center ">
-            <img class="w-135" src="./assets/hero-leaf1.png" alt="">
-            <div class="space-y-5 m-auto text-center">
-                <h1 class="font-bold text-5xl">Plant a Tree, Grow a Future</h1>
+    <section class="bg-[#CFF0DC] h-[383px] max-md:flex">
+        <div class="flex justify-around gap-20 items-center">
+            <img class="w-135 max-md:hidden" src="./assets/hero-leaf1.png" alt="">
+            <div class="space-y-5 m-auto text-center max-md:space-y-2 max-md:flex max-md:flex-col max-md:items-center max-md:p-5">
+                <h1 class="font-bold text-5xl max-md:text-xl">Plant a Tree, Grow a Future</h1>
                 <p>Join our mission to plant 1 million trees and make the Earth greener for future
                     <br> generations.
                 </p>
                 <button class="btn secondary rounded-full">Get Involved</button>
             </div>
-            <img class="w-135" src="./assets/hero-leaf2.png" alt="">
+            <img class="w-135 max-md:hidden" src="./assets/hero-leaf2.png" alt="">
         </div>
     </section>
 
@@ -58,139 +62,15 @@
     </section>
     <!-- Categories -->
     <section class="flex gap-5">
-        <div class="1st mx-8 w-80 ">
+        <section class="1st mx-8 w-80 ">
             <h1 class="font-bold text-2xl">Categories</h1>
-            <div class="mt-3">
-                <h2 class="text-xl primary p-2 rounded-xl">All Tress</h2>
+            <div class="mt-3 space-y-2" id="Catagories">
+                <!-- <h2 class="text-xl primary p-2 rounded-xl">All Tress</h2> -->
             </div>
-        </div>
-        <section class="2nd w-280  grid grid-cols-3 place-content-center gap-2">
-            <!--! Card -->
-            <div class="p-4  w-90 bg-white rounded-xl">
-                <div class=" place-content-center flex">
-
-                    <img class=" w-[320px] h-[180px] bg-cover rounded-sm "
-                        src="https://i.ibb.co.com/cSQdg7tf/mango-min.jpg" alt="">
-                </div>
-                <div>
-                    <p class="font-bold mt-2">Mango Tree</p>
-                    <p>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense
-                        green</p>
-                </div>
-                <div class="flex justify-between items-center mt-3">
-                    <p class="btn bg-[#DCFCE7] text-[#15803D] rounded-full">Fruit Tree</p>
-                    <p class="font-bold">৳ 500</p>
-                </div>
-                <button class="mt-3 btn primary w-full rounded-full">Add to Cart</button>
-            </div>
-            <!--! Card -->
-            <div class="p-4   w-90 bg-white rounded-xl">
-                <div class="  place-content-center flex">
-
-                    <img class=" w-[320px] h-[180px] bg-cover rounded-sm "
-                        src="https://i.ibb.co.com/cSQdg7tf/mango-min.jpg" alt="">
-                </div>
-                <div>
-                    <p class="font-bold mt-2">Mango Tree</p>
-                    <p>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense
-                        green</p>
-                </div>
-                <div class="flex justify-between items-center mt-3">
-                    <p class="btn bg-[#DCFCE7] text-[#15803D] rounded-full">Fruit Tree</p>
-                    <p class="font-bold">৳ 500</p>
-                </div>
-                <button class="mt-3 btn primary w-full rounded-full">Add to Cart</button>
-            </div>
-            <!--! Card -->
-            <div class="p-4   w-90 bg-white rounded-xl">
-                <div class="  place-content-center flex">
-
-                    <img class=" w-[320px] h-[180px] bg-cover rounded-sm "
-                        src="https://i.ibb.co.com/cSQdg7tf/mango-min.jpg" alt="">
-                </div>
-                <div>
-                    <p class="font-bold mt-2">Mango Tree</p>
-                    <p>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense
-                        green</p>
-                </div>
-                <div class="flex justify-between items-center mt-3">
-                    <p class="btn bg-[#DCFCE7] text-[#15803D] rounded-full">Fruit Tree</p>
-                    <p class="font-bold">৳ 500</p>
-                </div>
-                <button class="mt-3 btn primary w-full rounded-full">Add to Cart</button>
-            </div>
-            <!--! Card -->
-            <div class="p-4   w-90 bg-white rounded-xl">
-                <div class="  place-content-center flex">
-
-                    <img class=" w-[320px] h-[180px] bg-cover rounded-sm "
-                        src="https://i.ibb.co.com/cSQdg7tf/mango-min.jpg" alt="">
-                </div>
-                <div>
-                    <p class="font-bold mt-2">Mango Tree</p>
-                    <p>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense
-                        green</p>
-                </div>
-                <div class="flex justify-between items-center mt-3">
-                    <p class="btn bg-[#DCFCE7] text-[#15803D] rounded-full">Fruit Tree</p>
-                    <p class="font-bold">৳ 500</p>
-                </div>
-                <button class="mt-3 btn primary w-full rounded-full">Add to Cart</button>
-            </div>
-            <!--! Card -->
-            <div class="p-4   w-90 bg-white rounded-xl">
-                <div class="  place-content-center flex">
-
-                    <img class=" w-[320px] h-[180px] bg-cover rounded-sm "
-                        src="https://i.ibb.co.com/cSQdg7tf/mango-min.jpg" alt="">
-                </div>
-                <div>
-                    <p class="font-bold mt-2">Mango Tree</p>
-                    <p>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense
-                        green</p>
-                </div>
-                <div class="flex justify-between items-center mt-3">
-                    <p class="btn bg-[#DCFCE7] text-[#15803D] rounded-full">Fruit Tree</p>
-                    <p class="font-bold">৳ 500</p>
-                </div>
-                <button class="mt-3 btn primary w-full rounded-full">Add to Cart</button>
-            </div>
-            <!--! Card -->
-            <div class="p-4   w-90 bg-white rounded-xl">
-                <div class="  place-content-center flex">
-
-                    <img class=" w-[320px] h-[180px] bg-cover rounded-sm "
-                        src="https://i.ibb.co.com/cSQdg7tf/mango-min.jpg" alt="">
-                </div>
-                <div>
-                    <p class="font-bold mt-2">Mango Tree</p>
-                    <p>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense
-                        green</p>
-                </div>
-                <div class="flex justify-between items-center mt-3">
-                    <p class="btn bg-[#DCFCE7] text-[#15803D] rounded-full">Fruit Tree</p>
-                    <p class="font-bold">৳ 500</p>
-                </div>
-                <button class="mt-3 btn primary w-full rounded-full">Add to Cart</button>
-            </div>
-            <!--! Card -->
-            <div class="p-4   w-90 bg-white rounded-xl">
-                <div class="  place-content-center flex">
-
-                    <img class=" w-[320px] h-[180px] bg-cover rounded-sm "
-                        src="https://i.ibb.co.com/cSQdg7tf/mango-min.jpg" alt="">
-                </div>
-                <div>
-                    <p class="font-bold mt-2">Mango Tree</p>
-                    <p>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense
-                        green</p>
-                </div>
-                <div class="flex justify-between items-center mt-3">
-                    <p class="btn bg-[#DCFCE7] text-[#15803D] rounded-full">Fruit Tree</p>
-                    <p class="font-bold">৳ 500</p>
-                </div>
-                <button class="mt-3 btn primary w-full rounded-full">Add to Cart</button>
-            </div>
+        </section>
+         <!-- Card -->
+        <section id="Cart" class="2nd w-280  grid grid-cols-3 place-content-center gap-2">
+            
         </section>
         <!-- Your Cart Amount -->
         <section class="3rd w-80 bg-white">
@@ -238,7 +118,7 @@
             </div>
         </div>
     </section>
-
+ <!-- ! --------------------------------- -->
     <!-- Impact Section  -->
 
     <Section class="mx-8 h-80">
@@ -305,7 +185,7 @@
 
 
 
-
+ <script src="./Script/index.js"></script>
 </body>
 
 </html>
