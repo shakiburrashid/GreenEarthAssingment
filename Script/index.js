@@ -14,11 +14,14 @@ const showCatagoriesList = (list)=>{
         h1.innerHTML = 
         `<h2 id="selected-${i.id}" onclick="cardList(${i.id})" class="text-xl p-2 rounded-xl cursor-pointer allclick">${i.category_name}</h2>`
         Catagories.appendChild(h1)
+        document.getElementById("selected-1").classList.add("primary")
+        
     }
 }
 
 const RemoveActive= ()=>{
     const remove = document.querySelectorAll(".allclick")
+    
     for(let i of remove){
         i.classList.remove('primary')
     }
@@ -27,19 +30,24 @@ const RemoveActive= ()=>{
 catagoriesList()
 
 
+
+
 const cardList = async (id)=>{
     const url = `https://openapi.programming-hero.com/api/category/${id}`
     const res = await fetch(url)
     const get = await res.json()
+const Cart = document.getElementById("Cart");
     showCardList(get.plants);
     RemoveActive();
     const select = document.getElementById(`selected-${id}`)
     select.classList.add('primary')
 }
 
+
+// Cart Section
 const showCardList = (list)=>{
         const Cart = document.getElementById("Cart");
-        Cart.innerHTML = " "
+        Cart.innerHTML = "";
         for(let i of list){
             const div = document.createElement("div")
             div.innerHTML= 
@@ -57,11 +65,28 @@ const showCardList = (list)=>{
                     <p class="btn bg-[#DCFCE7] text-[#15803D] rounded-full">${i.category}</p>
                     <p class="font-bold"><span class="banglafont">৳ </span>${i.price}</p>
                 </div>
-                <button class="mt-3 btn primary w-full rounded-full">Add to Cart</button>
+                <button onclick="addAmount(${i.price})" class="mt-3 btn primary w-full rounded-full">Add to Cart</button>
             </div>`
             Cart.appendChild(div)
         }
 }
+
+
+
+
+
+
+
+
+let a = 0;
+const addAmount = (amount)=>{
+     a += amount
+     console.log(a);
+     
+    
+}
+
+
 
 
 
