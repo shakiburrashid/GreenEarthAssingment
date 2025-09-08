@@ -73,8 +73,6 @@ const showCardList = (list)=>{
         }
 }
 
-
-
 const Cart = async (id)=>{
     const url = `https://openapi.programming-hero.com/api/plant/${id}`
     const res = await fetch(url)
@@ -82,31 +80,48 @@ const Cart = async (id)=>{
     CartAmount(get.plants);
 }
 
-let CartAmount = (list) => {
-    console.log(list);
-    let nowMoney = 0;
-    const totalMoney = document.getElementById("totalMoney");
-    let TotalMoney +=nowMoney
-    totalMoney.innerHTML = ``
 
+let CartAmount = (list) => {
+    addAmount1(list.price);    
 
     const cartAmount = document.getElementById("cartAmount")
     const div = document.createElement("div")
     div.innerHTML = 
-    `<div>
-                    <div class="bg-[#F0FDF4] p-3 my-3 m-3 rounded-xl">
-                        <div class="flex items-center justify-between space-y-5 ">
+    `<div id='removeContainer-${list.id}'>
+            <div class="bg-[#F0FDF4] p-3 my-3 m-3 rounded-xl">
+                    <div class="flex items-center justify-between space-y-5 ">
                             <div class="mt-3">
                                 <h1 class="font-bold">${list.name}</h1>
                                 <p><span class="banglafont">৳</span>${list.price} x 1</p>
                             </div>
-                            <i class="fa-solid fa-xmark"></i>
-                        </div>
+                        <i onclick="removeCart(${list.id})" class="fa-solid fa-xmark cursor-pointer"></i>
                     </div>
-                </div>`
-        cartAmount.appendChild(div)
-  
+            </div>
+    </div>`
+    cartAmount.appendChild(div)
+    
 }
+const removeCart = (id)=>{
+ //  document.getElementById(`removeContainer-${id}`).innerHTML=""
+     const div = document.getElementById(`removeContainer-${id}`).innerHTML=""
+     const removediv = document.createElement('div')
+    removediv.innerHTML=""
+    div.appendChild(removediv)
+     console.log(id);
+ 
+    
+}
+
+
+
+
+let nowMoney = 0;
+const addAmount1 = (updateMoney)=>{
+   let TotalMoney = document.getElementById("totalMoney");
+   nowMoney += updateMoney
+   TotalMoney.innerHTML = nowMoney
+    
+    }
 
 
 
