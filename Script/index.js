@@ -1,3 +1,4 @@
+
 const catagoriesList = async()=>{
     const url = "https://openapi.programming-hero.com/api/categories"
     const res = await fetch(url)
@@ -65,7 +66,7 @@ const showCardList = (list)=>{
                     <p class="btn bg-[#DCFCE7] text-[#15803D] rounded-full">${i.category}</p>
                     <p class="font-bold"><span class="banglafont">৳ </span>${i.price}</p>
                 </div>
-                <button onclick="addAmount(${i.price})" class="mt-3 btn primary w-full rounded-full">Add to Cart</button>
+                <button onclick="Cart(${i.id})" class="mt-3 btn primary w-full rounded-full">Add to Cart</button>
             </div>`
             Cart.appendChild(div)
         }
@@ -78,17 +79,67 @@ const showCardList = (list)=>{
 
 
 
-let a = 0;
-const addAmount = (amount)=>{
-     a += amount
-     console.log(a);
-     
-    
+
+const Cart = async (id)=>{
+    const url = `https://openapi.programming-hero.com/api/plant/${id}`
+    const res = await fetch(url)
+    const get = await res.json();
+    CartAmount(get.plants);
+}
+
+let CartAmount = (list) => {
+    const cartAmount = document.getElementById("cartAmount")
+    const div = document.createElement("div")
+    div.innerHTML = 
+    `<div>
+                    <div class="bg-[#F0FDF4] p-3 my-3 m-3 rounded-xl">
+                        <div class="flex items-center justify-between space-y-5 ">
+                            <div class="mt-3">
+                                <h1 class="font-bold">${list.name}</h1>
+                                <p><span class="banglafont">৳</span>${list.price} x 1</p>
+                            </div>
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    </div>
+                    <hr class="bg-gray-200">
+                    <div class="flex justify-between p-3 m-3 text-xl">
+                        <h1>Total: </h1>
+                        <h1><span class="banglafont">৳</span>1000</h1>
+                    </div>
+                </div>`
+        cartAmount.appendChild(div)
+  
 }
 
 
 
+// {
+// "id": 1,
+// "image": "https://i.ibb.co.com/cSQdg7tf/mango-min.jpg",
+// "name": "Mango Tree",
+// "description": "A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green canopy offers shade, while its sweet fruits are rich in vitamins and minerals.",
+// "category": "Fruit Tree",
+// "price": 500
+// },
 
+
+
+
+
+
+
+
+
+
+
+
+// let a = 0;
+// const addAmount = (amount)=>{
+//      a += amount
+//      console.log(a);
+     
+    
+// }
 
 
 
