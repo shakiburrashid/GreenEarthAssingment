@@ -185,7 +185,7 @@ let CartAmount = (list) => {
     const div = document.createElement("div")
     div.innerHTML =
         `<div id='removeContainer-${list.id}'>
-            <div class="bg-[#F0FDF4] p-3 my-3 m-3 rounded-xl max-md:p-0">
+            <div class="bg-[#F0FDF4] p-3 my-3 m-3 rounded-xl max-md:p-2 max-md:w-68">
                     <div class="flex items-center justify-between space-y-5">
                             <div class="mt-3">
                                 <h1 class="font-bold">${list.name}</h1>
