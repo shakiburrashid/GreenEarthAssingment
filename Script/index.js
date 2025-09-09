@@ -140,7 +140,7 @@ const NowShowDialog = (details) => {
     div.innerHTML = `
     <div id="modal_box" class="modal-box ">
             <div class=" place-content-center flex flex-col gap-5">
-                <p class="font-bold mt-2 cursor-pointer text-2xl">Name: ${details.name}</p>
+                <p class="font-bold mt-2 cursor-pointer text-2xl">${details.name}</p>
                 <img class=" w-[400px] h-[200px] bg-cover rounded-xl mb-7" src="${details.image}" alt="">
             </div>
             <div class="space-y-5">

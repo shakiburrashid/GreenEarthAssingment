@@ -24,12 +24,28 @@
 <body class="bg-[#f0fdf4]">
     <!-- * Navbar Section -->
     <section class="bg-[#15803d]">
-        <header class="mx-8 ">
+        <header class="mx-8 max-md:mx-3">
             <div class="navbar">
-                <div class="navbar-start">
-                    <h1 class="text-xl text-white">Green Earth</h1>
+                <div class="navbar-start space-x-2">
+
+                    <div class="dropdown text-white text-xl hidden max-md:block">
+                        <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h7" />
+                            </svg>
+                        </div>
+                        <ul tabindex="0" class="text-black menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            <li><a>About</a></li>
+                            <li><a>Gallery</a></li>
+                            <li><a>Plant a Tree</a></li>
+                        </ul>
+                    </div>
+
+                    <h1 class="text-xl text-white ">Green Earth</h1>
                 </div>
-                <div class="navbar-center hidden lg:flex text-white space-x-5 list-none">
+                <div class="navbar-center hidden lg:flex text-white space-x-5 list-none max-md:hidden">
                     <li class="cursor-pointer">About</li>
                     <li class="cursor-pointer">Gallery</li>
                     <li class="cursor-pointer">Plant a Tree</li>
@@ -80,7 +96,6 @@
 
         </section>
         <!-- ! Modal -->
-        <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
         <dialog id="dialog" class="modal modal-bottom xl:modal-middle">
             <!-- <div id="modal_box" class="modal-box">
                 <h3 class="text-lg font-bold">Hello!</h3>
