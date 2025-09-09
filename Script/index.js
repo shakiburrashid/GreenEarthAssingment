@@ -63,7 +63,7 @@ const showCardList = (list) => {
     for (let i of list) {
         const div = document.createElement("div")
         div.innerHTML =
-            `<div id="CartShow5" class="p-4  w-90 bg-white rounded-xl ">
+            `<div id="CartShow5" class="p-4  w-90 max-md:w-80 bg-white rounded-xl ">
                 <div class=" place-content-center flex">
 
                     <img class=" w-[320px] h-[180px] bg-cover rounded-sm "
@@ -97,14 +97,13 @@ const AutoShowCardList = async () => {
 AutoShowCardList();
 const NowShowCardList = (id) => {
     const NowCart = document.getElementById('Cart')
-
     for (let i of id) {
         const addCart = document.createElement("div")
         addCart.innerHTML = `
-        <div id="CartShow5" class="p-4  w-90 bg-white rounded-xl">
+        <div id="CartShow5" class="p-4  w-90 max-md:w-80 bg-white rounded-xl">
                 <div class=" place-content-center flex">
 
-                    <img class=" w-[320px] h-[180px] bg-cover rounded-sm "
+                    <img class=" w-[320px] h-[180px] bg-cover rounded-sm"
                         src="${i.image}" alt="">
                 </div>
                 <div>
@@ -160,21 +159,6 @@ const NowShowDialog = (details) => {
     document.getElementById('dialog').showModal();
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
