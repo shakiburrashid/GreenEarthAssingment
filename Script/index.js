@@ -79,7 +79,7 @@ const showCardList = (list) => {
                     <p>${i.description}</p>
                 </div>
                 <div class="flex justify-between items-center mt-3">
-                    <p class="btn bg-[#DCFCE7] text-[#15803D] rounded-full">Fruit Tree</p>
+                    <p class="btn bg-[#DCFCE7] text-[#15803D] rounded-full">${i.category}</p>
                     <p class="font-bold"><span class="banglafont">৳ </span>${i.price}</p>
                 </div>
                 <button onclick="Cart(${i.id})" class="mt-3 btn primary w-full rounded-full">Add to Cart</button>
@@ -116,7 +116,7 @@ const NowShowCardList = (id) => {
                     <p>${i.description}</p>
                 </div>
                 <div class="flex justify-between items-center mt-3">
-                    <p class="btn bg-[#DCFCE7] text-[#15803D] rounded-full">Fruit Tree</p>
+                    <p class="btn bg-[#DCFCE7] text-[#15803D] rounded-full">${i.category}</p>
                     <p class="font-bold"><span class="banglafont">৳ </span>${i.price}</p>
                 </div>
                 <button onclick="Cart(${i.id})" class="mt-3 btn primary w-full rounded-full">Add to Cart</button>
@@ -148,7 +148,7 @@ const NowShowDialog = (details) => {
                 <img class=" w-[400px] h-[200px] bg-cover rounded-xl mb-7" src="${details.image}" alt="">
             </div>
             <div class="space-y-5">
-                <p class="mt-2 cursor-pointer"><span class="font-bold">Categories:</span> ${details.name}</p>
+                <p class="mt-2 cursor-pointer"><span class="font-bold">Categories:</span> ${details.category}</p>
                 <p><span class="font-bold">Price: </span>${details.price}</p>
                 <p><span class="font-bold">Description:</span> ${details.description}</p>
             </div>
@@ -178,15 +178,15 @@ let Cart = async (id) => {
     CartAmount(get.plants);
 }
 
-
+// Add To Cart
 let CartAmount = (list) => {
     addAmount1(list.price);
     const cartAmount = document.getElementById("cartAmount")
     const div = document.createElement("div")
     div.innerHTML =
         `<div id='removeContainer-${list.id}'>
-            <div class="bg-[#F0FDF4] p-3 my-3 m-3 rounded-xl">
-                    <div class="flex items-center justify-between space-y-5 ">
+            <div class="bg-[#F0FDF4] p-3 my-3 m-3 rounded-xl max-md:p-0">
+                    <div class="flex items-center justify-between space-y-5">
                             <div class="mt-3">
                                 <h1 class="font-bold">${list.name}</h1>
                                 <p><span class="banglafont">৳</span>${list.price} x 1</p>
