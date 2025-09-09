@@ -145,7 +145,7 @@ let CartAmount = (list) => {
                                 <h1 class="font-bold">${list.name}</h1>
                                 <p><span class="banglafont">৳</span>${list.price} x 1</p>
                             </div>
-                        <i onclick="removeCart(${list.id})" class="fa-solid fa-xmark cursor-pointer"></i>
+                        <i id="valueRemove${list.price}" onclick="removeCart(${list.id},${list.price})" class="fa-solid fa-xmark cursor-pointer"></i>
                     </div>
             </div>
     </div>`
@@ -153,14 +153,16 @@ let CartAmount = (list) => {
     
 }
 
-const removeCart = (id)=>{
+const removeCart = (id,taka)=>{
    const a = document.getElementById(`removeContainer-${id}`)
    a.remove();
-;
-  let TotalMoney = document.getElementById("totalMoney");
-   nowMoney -= taka
-   TotalMoney.innerHTML = nowMoney;
+
+   let TotalMoney = document.getElementById("totalMoney");
+    nowMoney -= taka
+    TotalMoney.innerHTML=nowMoney;
 }
+
+
 
 
 
@@ -171,7 +173,6 @@ const addAmount1 = (updateMoney)=>{
     nowMoney += updateMoney
     TotalMoney.innerHTML = nowMoney;
 }
-console.log(nowMoney);
 
 // subtractAmount1(nowMoney);
 
