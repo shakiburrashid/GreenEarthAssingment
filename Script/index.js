@@ -70,7 +70,7 @@ const showCardList = (list) => {
                         src="${i.image}" alt="">
                 </div>
                 <div>
-                    <p onclick="ShowModale(${i.id})" class="font-bold mt-2 cursor-pointer">${i.name}</p>
+                    <p onclick="DisplayShowModale(${i.id})" class="font-bold mt-2 cursor-pointer">${i.name}</p>
                     <p>${i.description}</p>
                 </div>
                 <div class="flex justify-between items-center mt-3">
@@ -108,7 +108,7 @@ const NowShowCardList = (id) => {
                         src="${i.image}" alt="">
                 </div>
                 <div>
-                    <p onclick="my_modal_5.showModal()" class="font-bold mt-2 cursor-pointer">${i.name}</p>
+                    <p onclick="DisplayShowModale(${i.id})" class="font-bold mt-2 cursor-pointer">${i.name}</p>
                     <p>${i.description}</p>
                 </div>
                 <div class="flex justify-between items-center mt-3">
@@ -122,17 +122,42 @@ const NowShowCardList = (id) => {
     manageSpinner(false);
 }
 
-const ShowModale = async (id) => {
+// Show Modale 
+const DisplayShowModale = async (id) => {
     const url = `https://openapi.programming-hero.com/api/plant/${id}`
-    const res = await fetch(url)
-    const get = res.json();
-    ShowDialog(get.plants)
+    const res = await fetch(url);
+    const get = await res.json();
+    NowShowDialog(get.plants)
 
 }
+// Show Modale 
+const NowShowDialog = (details) => {
+    console.log(details);
+    
+    const dialog = document.getElementById('dialog');
+    dialog.innerHTML=""
+    const div = document.createElement('div')
+    div.innerHTML = `
+    <div id="modal_box" class="modal-box ">
+            <div class=" place-content-center flex flex-col gap-5">
+                <p class="font-bold mt-2 cursor-pointer text-2xl">Name: ${details.name}</p>
+                <img class=" w-[400px] h-[200px] bg-cover rounded-xl mb-7" src="${details.image}" alt="">
+            </div>
+            <div class="space-y-5">
+                <p class="mt-2 cursor-pointer"><span class="font-bold">Categories:</span> ${details.name}</p>
+                <p><span class="font-bold">Price: </span>${details.price}</p>
+                <p><span class="font-bold">Description:</span> ${details.description}</p>
+            </div>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>`
 
-const ShowDialog = (details) => {
-    const dialog = document.getElementById('dialog')
-    dialog.innerHTML = " hi "
+    dialog.appendChild(div)
+
+    document.getElementById('dialog').showModal();
 
 }
 
