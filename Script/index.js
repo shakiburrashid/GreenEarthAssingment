@@ -1,6 +1,7 @@
 // Global Declaration 
 let nowMoney = 0;
 
+// Loading Spinner
 const manageSpinner = async (status) => {
     if (status == true) {
         document.getElementById("loading-spinner").classList.remove('hidden')
@@ -29,9 +30,6 @@ const showCatagoriesList = (list) => {
         h1.innerHTML =
             `<h2 id="selected-${i.id}" onclick="cardList(${i.id})" class="text-xl p-2 rounded-xl cursor-pointer allclick hover:bg-[#15803D] hover:text-white">${i.category_name}</h2>`
         Catagories.appendChild(h1)
-        //let autoselected =  document.getElementById("selected-1").classList.add("primary")
-
-
     }
 }
 
@@ -51,7 +49,6 @@ const cardList = async (id) => {
     const url = `https://openapi.programming-hero.com/api/category/${id}`
     const res = await fetch(url)
     const get = await res.json()
-    // const Cart = document.getElementById("Cart");
     showCardList(get.plants);
     RemoveActive();
 }
@@ -130,6 +127,7 @@ let Cart = async (id) => {
     const url = `https://openapi.programming-hero.com/api/plant/${id}`
     const res = await fetch(url)
     const get = await res.json();
+    alert(`${get.plants.name} has been added to cart`)
     const yourCardShow = document.getElementById("your-card-show").classList.remove('hidden')
     CartAmount(get.plants);
 }
