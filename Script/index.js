@@ -63,14 +63,14 @@ const showCardList = (list) => {
     for (let i of list) {
         const div = document.createElement("div")
         div.innerHTML =
-        `<div id="CartShow5" class="p-4  w-90 bg-white rounded-xl ">
+            `<div id="CartShow5" class="p-4  w-90 bg-white rounded-xl ">
                 <div class=" place-content-center flex">
 
                     <img class=" w-[320px] h-[180px] bg-cover rounded-sm "
                         src="${i.image}" alt="">
                 </div>
                 <div>
-                    <p onclick="my_modal_5.showModal()" class="font-bold mt-2 cursor-pointer">${i.name}</p>
+                    <p onclick="ShowModale(${i.id})" class="font-bold mt-2 cursor-pointer">${i.name}</p>
                     <p>${i.description}</p>
                 </div>
                 <div class="flex justify-between items-center mt-3">
@@ -79,7 +79,7 @@ const showCardList = (list) => {
                 </div>
                 <button onclick="Cart(${i.id})" class="mt-3 btn primary w-full rounded-full">Add to Cart</button>
         </div>`
-           
+
         Cart.appendChild(div)
     };
     manageSpinner(false);
@@ -121,6 +121,38 @@ const NowShowCardList = (id) => {
     }
     manageSpinner(false);
 }
+
+const ShowModale = async (id) => {
+    const url = `https://openapi.programming-hero.com/api/plant/${id}`
+    const res = await fetch(url)
+    const get = res.json();
+    ShowDialog(get.plants)
+
+}
+
+const ShowDialog = (details) => {
+    const dialog = document.getElementById('dialog')
+    dialog.innerHTML = " hi "
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 let Cart = async (id) => {
