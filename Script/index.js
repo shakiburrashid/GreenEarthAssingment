@@ -6,6 +6,7 @@ const catagoriesList = async()=>{
     showCatagoriesList(get.categories);
 }
 
+let nowMoney = 0;
 
 
 const showCatagoriesList = (list)=>{
@@ -13,13 +14,23 @@ const showCatagoriesList = (list)=>{
     for(let i of list){
         const h1 = document.createElement('h1');
         h1.innerHTML = 
-        `<h2 id="selected-${i.id}" onclick="cardList(${i.id})" class="text-xl p-2 rounded-xl cursor-pointer allclick">${i.category_name}</h2>`
+        `<h2 id="selected-${i.id}" onclick="cardList(${i.id})" class="text-xl p-2 rounded-xl cursor-pointer allclick hover:bg-[#15803D] hover:text-white">${i.category_name}</h2>`
         Catagories.appendChild(h1)
-       let autoselected =  document.getElementById("selected-1").classList.add("primary")
+       //let autoselected =  document.getElementById("selected-1").classList.add("primary")
        
         
     }
 }
+// "id": 1,
+// "image": "https://i.ibb.co.com/cSQdg7tf/mango-min.jpg",
+// "name": "Mango Tree",
+// "description": "A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green canopy offers shade, while its sweet fruits are rich in vitamins and minerals.",
+// "category": "Fruit Tree",
+// "price": 500
+
+
+
+
 
 const RemoveActive= ()=>{
     const remove = document.querySelectorAll(".allclick")
@@ -73,17 +84,57 @@ const showCardList = (list)=>{
         }
 }
 
-const Cart = async (id)=>{
+
+
+// ! Auto Show Card List
+const AutoShowCardList =async ()=>{
+    const url = `https://openapi.programming-hero.com/api/plants`
+    const res = await fetch(url)
+    const get = await res.json()
+    NowShowCardList(get.plants);
+   
+}
+AutoShowCardList();
+
+const NowShowCardList = (id) => {
+    const NowCart = document.getElementById('Cart')
+
+    for(let i of id){
+    const addCart = document.createElement("div")
+        addCart.innerHTML=`
+        <div class="p-4  w-90 bg-white rounded-xl">
+                <div class=" place-content-center flex">
+
+                    <img class=" w-[320px] h-[180px] bg-cover rounded-sm "
+                        src="${i.image}" alt="">
+                </div>
+                <div>
+                    <p class="font-bold mt-2 cursor-pointer">${i.name}</p>
+                    <p>${i.description}</p>
+                </div>
+                <div class="flex justify-between items-center mt-3">
+                    <p class="btn bg-[#DCFCE7] text-[#15803D] rounded-full">Fruit Tree</p>
+                    <p class="font-bold"><span class="banglafont">৳ </span>${i.price}</p>
+                </div>
+                <button onclick="Cart(${i.id})" class="mt-3 btn primary w-full rounded-full">Add to Cart</button>
+            </div>`
+            NowCart.appendChild(addCart)
+    }
+}
+
+
+let Cart = async (id)=>{
     const url = `https://openapi.programming-hero.com/api/plant/${id}`
     const res = await fetch(url)
     const get = await res.json();
+   const yourCardShow = document.getElementById("your-card-show").classList.remove('hidden')
     CartAmount(get.plants);
 }
 
 
 let CartAmount = (list) => {
     addAmount1(list.price);    
-
+    // subtractAmount2(list.price);
     const cartAmount = document.getElementById("cartAmount")
     const div = document.createElement("div")
     div.innerHTML = 
@@ -101,28 +152,28 @@ let CartAmount = (list) => {
     cartAmount.appendChild(div)
     
 }
+
 const removeCart = (id)=>{
- //  document.getElementById(`removeContainer-${id}`).innerHTML=""
-     const div = document.getElementById(`removeContainer-${id}`).innerHTML=""
-     const removediv = document.createElement('div')
-    removediv.innerHTML=""
-    div.appendChild(removediv)
-     console.log(id);
- 
-    
+   const a = document.getElementById(`removeContainer-${id}`)
+   a.remove();
+;
+  let TotalMoney = document.getElementById("totalMoney");
+   nowMoney -= taka
+   TotalMoney.innerHTML = nowMoney;
 }
 
 
 
 
-let nowMoney = 0;
+// let nowMoney = 0;
 const addAmount1 = (updateMoney)=>{
-   let TotalMoney = document.getElementById("totalMoney");
-   nowMoney += updateMoney
-   TotalMoney.innerHTML = nowMoney
-    
-    }
+    let TotalMoney = document.getElementById("totalMoney");
+    nowMoney += updateMoney
+    TotalMoney.innerHTML = nowMoney;
+}
+console.log(nowMoney);
 
+// subtractAmount1(nowMoney);
 
 
 // {
